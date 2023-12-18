@@ -1,0 +1,41 @@
+<!-- Specifies type and language of document -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="RRG.js" defer></script>
+</head>
+
+<!-- Title -->
+<title>Google Maps Example</title>
+
+<!-- The link always precedes the use of the google maps api. Follow with the key, and then the function specified in
+    "callback=" is what is executed once the API is loaded. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmXtasJeF256WvD99-ZWgDAbBPdK8y878&callback=initMap" async
+    defer></script>
+
+<!-- ...map is initialized -->
+
+<!-- All of this still needs to be formatted (don't know how to do this yet) -->
+
+<body>
+    <!-- id="map" specifies that this div will contain the map object created above. -->
+    <div id="map" style="height: 400px;"></div>
+
+    <!-- Two boxes that take location inputs -->
+    <input type="text" id="omnibox1" placeholder="Start Point" onchange='handleRouteFieldChange(map)' value="">
+    <input type="text" id="omnibox2" placeholder="End Point" onchange='handleRouteFieldChange(map)' value="">
+
+    <!-- A box that takes a number input -->
+    <input type="number" id="distance" placeholder="Approximate Distance">
+
+    <!-- Starts the route generation process. beginRouteGeneration() is empty for now -->
+    <button id="generateRoutesButton" onclick="beginRouteGeneration()">Generate Routes</button>
+
+    <button id="clearRoutes" onclick="clearRoutes()">Clear Routes</button>
+</body>
+
+</html>
