@@ -7,7 +7,8 @@ var requester; // Object that performs route requests with API
 function initMap() {
 
     // If these were normal packages they would have to be imported, but since we are using the google maps
-    // api, google.maps allows us to access them. We can now use Map and Marker constructors
+    // api, google.maps allows us to access them. We can now use Map, Marker, Position, Data, DirectionsRenderer,
+    // and Polyline constructores
 
     const Map = google.maps.Map;
     const Position = google.maps.LatLng;
@@ -54,14 +55,13 @@ function handleRouteFieldChange() {
             origin: omnibox1.value,
             destination: omnibox2.value,
             travelMode: "DRIVING",
-            waypoints: [{ location: 'Otsego, MI' }] // All generated routes will go through Otsego
+            waypoints: [{ location: 'Otsego, MI' }] // All generated routes will go through Otsego, different
+            // ways to make routes that start and end in the same place, but aren't nothing
         }
 
         // Create new route w/ direction fields
         requester.route(request, function (response, status) {
             if (status === 'OK') {
-                // This will eventually be replaced with returing the route, it's like this 
-                // for now for testing purposes
                 renderer.setDirections(response);
             }
             else
